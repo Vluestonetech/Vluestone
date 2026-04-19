@@ -1,0 +1,30 @@
+---
+const { activePage } = Astro.props;
+---
+
+<nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+    <a href="/" class="navbar-brand p-0">
+        <img src="/img/Logo_home_final.png" width="120" alt="Logo" />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="fa fa-bars"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-0">
+            <a href="/" class={`nav-item nav-link ${activePage === 'home' ? 'active' : ''}`}>Home</a>
+            <a href="/sobre" class={`nav-item nav-link ${activePage === 'about' ? 'active' : ''}`}>Sobre</a>
+            <a href="/servicos" class={`nav-item nav-link ${activePage === 'service' ? 'active' : ''}`}>Serviços</a>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Portfólio</a>
+                <div class="dropdown-menu m-0">
+                    <a href="/landing-pages" class="dropdown-item">Landing pages</a>
+                    <a href="/sites-institucionais" class="dropdown-item">Sites institucionais</a>
+                    <a href="/ecommerce" class="dropdown-item">E-commerce</a>
+                    <a href="/aplicativos" class="dropdown-item">App</a>
+                    <a href="/manutencao" class="dropdown-item">Manutenção</a>
+                </div>
+            </div>
+            <a href="/contato" class={`nav-item nav-link ${activePage === 'contact' ? 'active' : ''}`}>Contato</a>
+        </div>
+    </div>
+</nav>

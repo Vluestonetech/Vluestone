@@ -1,0 +1,82 @@
+---
+import TopBar from '../components/TopBar.astro';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  activePage?: string;
+}
+
+const { title, activePage } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>{title}</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <!-- Favicon -->
+    <link href="/img/Logo 3 Transparent.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner"></div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- whatsapp Start -->
+    <a href="https://api.whatsapp.com/send?phone=5511961932284&text=gostaria%20de%20receber%20mais%20informações?" class="icon" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <!-- whatsapp end -->
+
+    <TopBar />
+
+    <div class="container-fluid position-relative p-0">
+        <NavBar activePage={activePage} />
+        <slot name="header" />
+    </div>
+
+    <slot />
+
+    <Footer />
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script is:inline src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script is:inline src="/lib/wow/wow.min.js"></script>
+    <script is:inline src="/lib/easing/easing.min.js"></script>
+    <script is:inline src="/lib/waypoints/waypoints.min.js"></script>
+    <script is:inline src="/lib/counterup/counterup.min.js"></script>
+    <script is:inline src="/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Javascript -->
+    <script is:inline src="/js/main.js"></script>
+</body>
+</html>
